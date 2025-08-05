@@ -1,1 +1,9 @@
 <p>books works!</p>
+
+@if (books$ | async; as books) {
+    <ul>
+        @for (book of books; track $index) {
+            <li>{{ book.name }}</li>
+        }
+    </ul>
+}

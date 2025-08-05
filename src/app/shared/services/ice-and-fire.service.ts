@@ -1,5 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Book } from "../models/book.model";
 
 @Injectable()
 export class IceAndFireService {
@@ -9,7 +11,7 @@ export class IceAndFireService {
         private httpClient: HttpClient,
     ) {}
 
-    public getBooks() {
-        return this.httpClient.get(`${this.apiUrl}/books`)
+    public getBooks(): Observable<Book[]> {
+        return this.httpClient.get<Book[]>(`${this.apiUrl}/books`)
     }
 }
