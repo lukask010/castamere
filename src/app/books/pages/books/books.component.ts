@@ -16,5 +16,8 @@ export class BooksComponent implements OnInit {
 
   public ngOnInit(): void {
     console.log('hello world')
+
+    this.iceAndFireService.getBooks()
+      .subscribe(books => console.log(books));
   }
 }
