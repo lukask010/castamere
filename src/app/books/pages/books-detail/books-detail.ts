@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IceAndFireService } from '../../../shared/services/ice-and-fire.service';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
@@ -14,7 +14,7 @@ import { selectFavoritesBook, selectSelectedBook } from '../../state/books.selec
   styleUrl: './books-detail.scss',
   standalone: true,
 })
-export class BooksDetailComponent implements OnInit {
+export class BooksDetailComponent implements OnInit, OnDestroy {
 
   public book: Book | undefined
   public isBookFavorite = false
@@ -43,6 +43,10 @@ export class BooksDetailComponent implements OnInit {
       .subscribe((favorites: ReadonlyArray<Book>) => {
         this.isBookFavorite = favorites.some((favorite: Book) => favorite.isbn === this.book?.isbn)
       })
+  }
+
+  public ngOnDestroy(): void {
+    this.store.dispatch(BooksActions.loadBook({ book: undefined }))
   }
 
   public addToFavorites(book: Book) {
