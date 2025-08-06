@@ -3,10 +3,13 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
-import { provideStore } from '@ngrx/store';
+import { MetaReducer, provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { booksReducer } from './books/state/books.reducer';
+import { booksLocalStorageSyncReducer } from './shared/state/books-localstorage.reducer';
+
+const metaReducers: MetaReducer<any>[] = [booksLocalStorageSyncReducer]
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,8 +17,8 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(),
-    provideStore({ books: booksReducer }),
+    provideStore({ books: booksReducer }, { metaReducers }),
     provideEffects(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode(), autoPause: true }),
-]
+  ]
 };
