@@ -12,6 +12,10 @@ export class IceAndFireService {
     ) {}
 
     public getBooks(): Observable<Book[]> {
-        return this.httpClient.get<Book[]>(`${this.apiUrl}/books`)
+        return this.httpClient.get<Book[]>(`${this.apiUrl}/books?pageSize=20`)
+    }
+
+    public getBook(bookId: number): Observable<Book> {
+        return this.httpClient.get<Book>(`${this.apiUrl}/books/${bookId}`)
     }
 }

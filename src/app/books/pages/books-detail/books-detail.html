@@ -1,1 +1,3 @@
-<p>books-detail works!</p>
+@if (book$ | async; as book) {
+    {{ book.name }}
+}

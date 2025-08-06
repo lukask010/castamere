@@ -1,9 +1,9 @@
-<p>books works!</p>
-
 @if (books$ | async; as books) {
     <ul>
         @for (book of books; track $index) {
-            <li>{{ book.name }}</li>
+            <li>
+                <a [routerLink]="[($index + 1)]" routerLinkActive="router-link-active">{{ book.name }}</a>
+            </li>
         }
     </ul>
 }
