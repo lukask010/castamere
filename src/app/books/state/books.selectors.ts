@@ -14,3 +14,7 @@ export const selectSelectedBook = createSelector(
     (state: BooksState) => state.selectedBook
 );
 
+export const selectFavoritesBook = createSelector(
+    selectBooksState,
+    (state: BooksState) => state.favorites
+);

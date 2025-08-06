@@ -4,12 +4,14 @@ import { BooksActions } from "./books.actions";
 
 export interface BooksState {
     books: ReadonlyArray<Book>;
+    favorites: ReadonlyArray<Book>;
     selectedBook: Book | undefined;
 }
 
 export const initialState: BooksState = {
     books: [],
     selectedBook: undefined,
+    favorites: [],
 }
 
 export const booksReducer = createReducer(
@@ -17,11 +19,17 @@ export const booksReducer = createReducer(
     on(BooksActions.loadBookList, (state, { books }) => ({
         ...state,
         books,
-        loading: false
     })),
     on(BooksActions.loadBook, (state, { book }) => ({
         ...state,
         selectedBook: book,
-        loading: false
     })),
-);
+    on(BooksActions.addToFavorites, (state, { book }) => ({
+        ...state,
+        favorites: [...state.favorites, book],
+    })),
+    on(BooksActions.removeFromFavorites, (state, { isbn }) => ({
+        ...state,
+        favorites: state.favorites.filter(book => book.isbn !== isbn)
+    })),
+)

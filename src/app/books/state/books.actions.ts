@@ -6,5 +6,8 @@ export const BooksActions = createActionGroup({
     events: {
         'Load Book List': props<{ books: ReadonlyArray<Book> }>(),
         'Load Book': props<{ book: Book }>(),
+        'Load Favorites': props<{ books: ReadonlyArray<Book> }>(),
+        'Add To Favorites': props<{ book: Book }>(),
+        'Remove From Favorites': props<{ isbn: string }>(),
     }
 })

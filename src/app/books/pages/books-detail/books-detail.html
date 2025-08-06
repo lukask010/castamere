@@ -1,3 +1,12 @@
-@if (book$ | async; as book) {
+@if (book) {
     {{ book.name }}
+
+    <br>
+    <br>
+
+    @if (!isBookFavorite) {
+        <button (click)="addToFavorites(book)">Add to favorites</button>
+    } @else {
+        <button (click)="removeFromFavorites(book.isbn)">Remove from favorites</button>
+    }
 }
