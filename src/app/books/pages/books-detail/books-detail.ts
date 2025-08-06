@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { IceAndFireService } from '../../../shared/services/ice-and-fire.service';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute, RouterModule } from '@angular/router';
@@ -24,6 +25,7 @@ export class BooksDetailComponent implements OnInit, OnDestroy {
     private iceAndFireService: IceAndFireService,
     private store: Store,
     private activatedRouted: ActivatedRoute,
+    private location: Location,
   ) { }
 
   public ngOnInit(): void {
@@ -58,6 +60,10 @@ export class BooksDetailComponent implements OnInit, OnDestroy {
 
   public openLinkInNewTab(character: string) {
     window.open(character, '_blank')
+  }
+
+  public goBack() {
+    this.location.back();
   }
 
   private loadBook(bookId: number): void {

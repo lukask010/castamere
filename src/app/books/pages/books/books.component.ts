@@ -14,7 +14,6 @@ import { BookComponent } from "../../components/book-component/book-component";
   imports: [AsyncPipe, RouterLink, BookComponent],
   providers: [IceAndFireService],
   templateUrl: './books.component.html',
-  styleUrl: './books.component.scss',
   standalone: true,
 })
 export class BooksComponent implements OnInit {

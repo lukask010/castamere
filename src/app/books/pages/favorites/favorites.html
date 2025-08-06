@@ -1,0 +1,21 @@
+<div class="bg-base-300">
+    <div class="flex justify-between">
+        <span class="text-2xl ml-4 pb-3">Favorites</span>
+    
+        <a class="btn btn-primary mr-4 w-33" routerLink="/books">See all books</a>
+    </div>
+
+    <div class="flex flex-wrap gap-5 justify-center py-5 bg-base-300">
+        @if (books$ | async; as books) {
+
+        @for (book of books; track $index) {
+            <app-book-component 
+            class="cursor-pointer" 
+            [routerLink]="'/books/' + [($index + 1)]" 
+            [book]="book">
+            </app-book-component>
+            }
+        }
+    </div>
+</div>
+

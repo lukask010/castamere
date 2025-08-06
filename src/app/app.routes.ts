@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { BooksComponent } from './books/pages/books/books.component';
-import { App } from './app';
 import { HomeComonent } from './home/home-comonent/home-comonent';
 
 export const routes: Routes = [
@@ -15,6 +13,14 @@ export const routes: Routes = [
     },
     {
         path: 'books/:id',
+        loadComponent: () => import('./books/pages/books-detail/books-detail').then(m => m.BooksDetailComponent)
+    },
+    {
+        path: 'favorites',
+        loadComponent: () => import('./books/pages/favorites/favorites').then(m => m.Favorites)
+    },
+    {
+        path: 'favorites/:id',
         loadComponent: () => import('./books/pages/books-detail/books-detail').then(m => m.BooksDetailComponent)
     },
 ];

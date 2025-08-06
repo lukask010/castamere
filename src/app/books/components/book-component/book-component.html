@@ -3,7 +3,7 @@
         <div class="card-body flex">
             <div class="card-title text-orange-500 flex justify-between"> 
                 {{ book.name }}
-                <div class="badge badge-sm badge-info">{{ book.released | date: 'YYYY' }}</div>
+                <div class="badge badge-sm badge-info">{{ book.released | date: 'y' }}</div>
             </div>
             <table class="table mt-3">
                 <tbody>

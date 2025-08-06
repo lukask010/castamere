@@ -1,7 +1,7 @@
 <div class="flex flex-col p-5">
     @if (book) {
         <div class="flex mt-3 mb-5 justify-between">
-            <a class="btn btn-primary" routerLink="/books">Back</a>
+            <button class="btn btn-primary" (click)="goBack()">Back</button>
 
             @if (!isBookFavorite) {
                 <button class="btn btn-warning" (click)="addToFavorites(book)">Add to favorites</button>
