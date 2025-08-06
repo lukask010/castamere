@@ -1,14 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IceAndFireService } from '../../../shared/services/ice-and-fire.service';
 import { Store } from '@ngrx/store';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Book } from '../../../shared/models/book.model';
 import { BooksActions } from '../../state/books.actions';
 import { selectFavoritesBook, selectSelectedBook } from '../../state/books.selectors';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-books-detail',
-  imports: [],
+  imports: [RouterModule],
   providers: [IceAndFireService],
   templateUrl: './books-detail.html',
   styleUrl: './books-detail.scss',
@@ -34,15 +35,13 @@ export class BooksDetailComponent implements OnInit, OnDestroy {
       }
      })
 
-    this.store.select(selectSelectedBook)
-     .subscribe((book: Book | undefined) => {
-      this.book = book
-     })
-
-    this.store.select(selectFavoritesBook)
-      .subscribe((favorites: ReadonlyArray<Book>) => {
+     combineLatest([
+       this.store.select(selectSelectedBook),
+       this.store.select(selectFavoritesBook)
+     ]).subscribe(([book, favorites]) => {
+        this.book = book
         this.isBookFavorite = favorites.some((favorite: Book) => favorite.isbn === this.book?.isbn)
-      })
+     })
   }
 
   public ngOnDestroy(): void {

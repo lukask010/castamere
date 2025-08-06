@@ -1,10 +1,15 @@
 <div class="flex flex-col p-5">
     @if (book) {
-        @if (!isBookFavorite) {
-            <button (click)="addToFavorites(book)">Add to favorites</button>
-        } @else {
-            <button (click)="removeFromFavorites(book.isbn)">Remove from favorites</button>
-        }
+        <div class="flex mt-3 mb-5 justify-between">
+            <a class="btn btn-primary" routerLink="/books">Back</a>
+
+            @if (!isBookFavorite) {
+                <button class="btn btn-warning" (click)="addToFavorites(book)">Add to favorites</button>
+            } @else {
+                <button class="btn btn-error" (click)="removeFromFavorites(book.isbn)">Remove from favorites</button>
+            }
+
+        </div>
 
 
         <div class="text-2xl font-bold">{{ book.name }}</div>
