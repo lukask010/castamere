@@ -12,7 +12,7 @@
             @for (book of books; track $index) {
                 <app-book-component 
                     class="cursor-pointer"
-                    [routerLink]="[($index + 1)]"
+                    [routerLink]="getBookIndex(book.isbn)"
                     [book]="book"
                 ></app-book-component>
             }
