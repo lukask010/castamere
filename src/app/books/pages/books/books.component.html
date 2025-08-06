@@ -1,13 +1,22 @@
-<div class="bg-base-300">
-
+<div class="bg-base-300 flex flex-col">
     <div class="flex justify-between">
         <span class="text-2xl ml-4 pb-3">All books</span>
 
         <a class="btn btn-warning mr-4 w-33" routerLink="/favorites">See favorites</a>
     </div>
+
+    <form [formGroup]="searchForm" class="self-center ml-3 mt-5" >
+        <input 
+            type="text" 
+            placeholder="Search by title" 
+            class="input" 
+            formControlName="searchTerm"
+        />
+    </form>
+    
     
     <div class="flex flex-wrap gap-5 justify-center py-5 ">
-        @if (books$ | async; as books) {
+        @if (filteredBooks$ | async; as books) {
                 
             @for (book of books; track $index) {
                 <app-book-component 
