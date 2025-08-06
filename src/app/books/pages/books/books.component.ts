@@ -7,10 +7,11 @@ import { RouterLink } from '@angular/router';
 import { selectAllBooks } from '../../state/books.selectors';
 import { Observable } from 'rxjs';
 import { Book } from '../../../shared/models/book.model';
+import { BookComponent } from "../../components/book-component/book-component";
 
 @Component({
   selector: 'app-books',
-  imports: [AsyncPipe, RouterLink],
+  imports: [AsyncPipe, RouterLink, BookComponent],
   providers: [IceAndFireService],
   templateUrl: './books.component.html',
   styleUrl: './books.component.scss',

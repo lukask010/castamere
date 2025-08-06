@@ -1,0 +1,30 @@
+@if (book) {
+    <div class="card w-sm bg-base-100 shadow-sm">
+        <div class="card-body flex">
+            <div class="card-title text-orange-500 flex justify-between"> 
+                {{ book.name }}
+                <div class="badge badge-sm badge-info">{{ book.released | date: 'YYYY' }}</div>
+            </div>
+            <table class="table mt-3">
+                <tbody>
+                    <tr>
+                        <td>Number of pages</td>
+                        <td>{{ book.numberOfPages }}</td>
+                    </tr>
+                    <tr>
+                        <td>Publisher</td>
+                        <td>{{ book.publisher }}</td>
+                    </tr>
+                    <tr>
+                        <td>Country</td>
+                        <td>{{ book.country }}</td>
+                    </tr>
+                    <tr>
+                        <td>ISBN</td>
+                        <td>{{ book.isbn }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

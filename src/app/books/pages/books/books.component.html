@@ -1,9 +1,13 @@
-@if (books$ | async; as books) {
-    <ul>
+<div class="flex flex-wrap gap-5 justify-center py-5 bg-base-300">
+    @if (books$ | async; as books) {
+            
         @for (book of books; track $index) {
-            <li>
-                <a [routerLink]="[($index + 1)]" routerLinkActive="router-link-active">{{ book.name }}</a>
-            </li>
+            <app-book-component 
+                class="cursor-pointer"
+                [routerLink]="[($index + 1)]"
+                [book]="book"
+            ></app-book-component>
         }
-    </ul>
-}
+    }
+</div>
+
