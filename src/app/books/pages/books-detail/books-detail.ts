@@ -57,6 +57,10 @@ export class BooksDetailComponent implements OnInit, OnDestroy {
     this.store.dispatch(BooksActions.removeFromFavorites({ isbn }))
   }
 
+  public openLinkInNewTab(character: string) {
+    window.open(character, '_blank')
+  }
+
   private loadBook(bookId: number): void {
     this.iceAndFireService.getBook(bookId)
     .subscribe((book: Book) => {

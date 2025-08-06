@@ -1,12 +1,64 @@
-@if (book) {
-    {{ book.name }}
+<div class="flex flex-col p-5">
+    @if (book) {
+        @if (!isBookFavorite) {
+            <button (click)="addToFavorites(book)">Add to favorites</button>
+        } @else {
+            <button (click)="removeFromFavorites(book.isbn)">Remove from favorites</button>
+        }
 
-    <br>
-    <br>
 
-    @if (!isBookFavorite) {
-        <button (click)="addToFavorites(book)">Add to favorites</button>
-    } @else {
-        <button (click)="removeFromFavorites(book.isbn)">Remove from favorites</button>
+        <div class="text-2xl font-bold">{{ book.name }}</div>
+
+        <div class="pt-10 font-bold">Basic info</div>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>ISBN</td>
+                    <td>{{ book.isbn }}</td>
+                </tr>
+                <tr>
+                    <td>Number of pages</td>
+                    <td>{{ book.numberOfPages }}</td>
+                </tr>
+                <tr>
+                    <td>Publisher</td>
+                    <td>{{ book.publisher }}</td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td>{{ book.country }}</td>
+                </tr>
+                <tr>
+                    <td>Mediatype</td>
+                    <td>{{ book.mediaType}}</td>
+                </tr>
+                <tr>
+                    <td>Released</td>
+                    <td>{{ book.released }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="pt-10 font-bold">Characters</div>
+        <table class="table">
+            <tbody>
+                @for (character of book.characters; track character) {
+                    <tr>
+                        <td class="underline cursor-pointer" (click)="openLinkInNewTab(character)">{{ character }}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="pt-10 font-bold">POV Characters</div>
+        <table class="table">
+            <tbody>
+                @for (character of book.povCharacters; track character) {
+                <tr>
+                    <td class="underline cursor-pointer" (click)="openLinkInNewTab(character)">{{ character }}</td>
+                </tr>
+                }
+            </tbody>
+        </table>
     }
-}
+</div>
