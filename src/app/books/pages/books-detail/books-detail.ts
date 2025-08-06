@@ -14,7 +14,7 @@ import { selectFavoritesBook, selectSelectedBook } from '../../state/books.selec
   styleUrl: './books-detail.scss',
   standalone: true,
 })
-export class BooksDetail implements OnInit {
+export class BooksDetailComponent implements OnInit {
 
   public book: Book | undefined
   public isBookFavorite = false
