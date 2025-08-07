@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { HomeComonent } from './home/home-comonent/home-comonent';
+import { HomeComponent } from './home/home-component/home-comonent';
 
 export const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        component: HomeComonent,
+        component: HomeComponent,
     },
     {
         path: 'books',
