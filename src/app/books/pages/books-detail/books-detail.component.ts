@@ -12,8 +12,7 @@ import { combineLatest } from 'rxjs';
   selector: 'app-books-detail',
   imports: [RouterModule],
   providers: [IceAndFireService],
-  templateUrl: './books-detail.html',
-  styleUrl: './books-detail.scss',
+  templateUrl: './books-detail.component.html',
   standalone: true,
 })
 export class BooksDetailComponent implements OnInit, OnDestroy {

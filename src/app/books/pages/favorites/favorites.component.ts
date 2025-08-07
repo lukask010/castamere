@@ -10,12 +10,12 @@ import { HelpersService } from '../../../shared/services/helpers.service';
 
 @Component({
   selector: 'app-favorites',
-  imports: [BookComponent, RouterModule, AsyncPipe],
+  imports: [RouterModule, AsyncPipe, BookComponent],
   providers: [HelpersService],
-  templateUrl: './favorites.html',
+  templateUrl: './favorites.component.html',
   standalone: true,
 })
-export class Favorites {
+export class FavoritesComponent {
   public books$: Observable<ReadonlyArray<Book>>;
   private books: ReadonlyArray<Book> = [];
 

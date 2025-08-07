@@ -13,14 +13,14 @@ export const routes: Routes = [
     },
     {
         path: 'books/:id',
-        loadComponent: () => import('./books/pages/books-detail/books-detail').then(m => m.BooksDetailComponent)
+        loadComponent: () => import('./books/pages/books-detail/books-detail.component').then(m => m.BooksDetailComponent)
     },
     {
         path: 'favorites',
-        loadComponent: () => import('./books/pages/favorites/favorites').then(m => m.Favorites)
+        loadComponent: () => import('./books/pages/favorites/favorites.component').then(m => m.FavoritesComponent)
     },
     {
         path: 'favorites/:id',
-        loadComponent: () => import('./books/pages/books-detail/books-detail').then(m => m.BooksDetailComponent)
+        loadComponent: () => import('./books/pages/books-detail/books-detail.component').then(m => m.BooksDetailComponent)
     },
 ];

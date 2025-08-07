@@ -10,5 +10,4 @@ import { DatePipe } from '@angular/common';
 })
 export class BookComponent {
   @Input() public book: Book | undefined
-
 }

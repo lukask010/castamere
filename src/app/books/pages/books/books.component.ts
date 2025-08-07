@@ -50,9 +50,7 @@ export class BooksComponent implements OnInit {
         )
 
         return filtered
-      }
-
-      )
+      })
     );
   }
 

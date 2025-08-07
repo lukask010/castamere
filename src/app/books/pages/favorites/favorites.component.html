@@ -9,10 +9,10 @@
         @if (books$ | async; as books) {
 
         @for (book of books; track $index) {
-            <app-book-component 
-            class="cursor-pointer" 
-            [routerLink]="'/books/' + getBookIndex(book.isbn)" 
-            [book]="book">
+            <app-book-component
+                class="cursor-pointer" 
+                [routerLink]="'/books/' + getBookIndex(book.isbn)" 
+                [book]="book">
             </app-book-component>
             }
         }
