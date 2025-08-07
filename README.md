@@ -1,6 +1,19 @@
 # Castamere
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.4.
+In this project, we showcase books and their details authored by George R.R. Martin, utilizing the API endpoint https://anapioficeandfire.com/.
+
+Built with: 
+- Angular 20
+- Karma/Jasmine for unit tests
+- NgRx for state management
+- Tailwind 4
+- DaisyUI 5
+  
+Nice to have, but not yet implemented:
+- prettier for more code consistency
+- e2e tests
+- authentication
+- error handling (e.g. user opens book details for id that doesn't exist)
 
 ## Development server
 
@@ -44,15 +57,11 @@ To execute unit tests with the [Karma](https://karma-runner.github.io) test runn
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
+or you can run tests in headless mode (Note that currently is using chromiumHeadless, adapt if necessary)
 ```bash
-ng e2e
+npm run test:headless
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
 ## Additional Resources
 
